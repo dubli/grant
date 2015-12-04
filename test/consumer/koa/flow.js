@@ -77,6 +77,25 @@ describe('flow - koa', function () {
       })
     })
 
+    it('twitter with qs state', function (done) {
+      function assert (done) {
+        request.get(url('/connect/twitter?state=test-state'), {
+          jar: request.jar(),
+          json: true
+        }, function (err, res, body) {
+          should.deepEqual(body, {
+            access_token: 'token', access_secret: 'secret',
+            raw: {oauth_token: 'token', oauth_token_secret: 'secret'},
+            dynamic: {state: 'test-state'}
+          })
+          done()
+        })
+      }
+
+      grant.config.twitter.transport = 'querystring'
+      assert(done)
+    })
+
     after(function (done) {
       server.close(done)
     })
