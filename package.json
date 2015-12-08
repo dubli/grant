@@ -26,6 +26,7 @@
   "dependencies": {
     "request"         : "2.64.0",
     "qs"              : "5.1.0",
+    "koa-route"       : "2.x.x",
     "deep-copy"       : "1.1.0"
   },
 
@@ -41,7 +42,6 @@
     "body-parser"     : "1.x.x",
 
     "koa"             : "1.x.x",
-    "koa-route"       : "2.x.x",
     "thunkify"        : "2.x.x",
 
     "koa-session"     : "3.x.x",
